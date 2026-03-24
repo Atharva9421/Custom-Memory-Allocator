@@ -65,7 +65,8 @@ Splits the block if the remaining space is large enough to be useful.
 Marks the target block as free.
 Immediately merges adjacent free blocks (coalescing) to maintain large free spaces.
 
-### Reallocation: * Attempts to expand the current block in-place if possible.
+### Reallocation: 
+Attempts to expand the current block in-place if possible.
 Otherwise, it allocates new memory, copies the existing data, and frees the old block.
 
 ---
