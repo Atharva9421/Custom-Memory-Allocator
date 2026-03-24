@@ -1,10 +1,10 @@
-# 🛠️ Custom Memory Allocator in C
+# 🛠️ Custom Memory Allocator in C:
 
 A low-level systems programming project that implements a custom memory management system. This project replicates the behavior of standard library functions like `malloc`, `free`, `realloc`, and `calloc` using a fixed-size heap. It serves as a practical demonstration of memory management concepts, fragmentation handling, and allocator design.
 
 ---
 
-## ✨ Features
+## ✨ Features:
 
 ### **Core Allocator Functionality**
 Custom implementation of:
@@ -32,7 +32,7 @@ Custom implementation of:
 
 ---
 
-## 📂 Project Structure
+## 📂 Project Structure:
 
 ```text
 custom-memory-allocator/
@@ -50,7 +50,7 @@ custom-memory-allocator/
 ```
 ---
 
-## ⚙️ How It Works
+## ⚙️ How It Works:
 Simulation: A fixed-size byte array simulates the heap memory.
 
 Headers: Every block includes metadata (size, status, pointers).
@@ -73,7 +73,7 @@ Otherwise, it allocates new memory, copies the existing data, and frees the old 
 
 ---
 
-## 🚀 Build & Run Instructions
+## 🚀 Build & Run Instructions:
 ### Step 1: Navigate to Project
 Open your terminal and enter the project directory:
 cd "C:/Users/Aditi/Desktop/C++ project/custom-memory-allocator"
