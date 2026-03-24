@@ -39,6 +39,8 @@ custom-memory-allocator/
 ├── include/
 │   ├── allocator.h
 │   └── allocator_internal.h
+├── output/
+│   └── demo_output.txt
 ├── src/
 │   └── allocator.c
 ├── examples/
