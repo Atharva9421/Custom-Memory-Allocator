@@ -95,6 +95,10 @@ Output includes: Heap state, allocation behavior, fragmentation statistics, and 
 ./bin/test_allocator
 Expected output: All tests passed!
 
+## 📂 Output Files
+
+- [Demo Output](output/demo_output.txt)
+
 
 **Next Step:** Would you like me to help you write the `allocator.c` source code for the `my_malloc` and `my_free` functions?
 
