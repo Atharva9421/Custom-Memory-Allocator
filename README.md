@@ -51,23 +51,23 @@ custom-memory-allocator/
 ---
 
 ## ⚙️ How It Works:
-Simulation: A fixed-size byte array simulates the heap memory.
+### Simulation: A fixed-size byte array simulates the heap memory.
 
-Headers: Every block includes metadata (size, status, pointers).
+### Headers: Every block includes metadata (size, status, pointers).
 
-Allocation:
+### Allocation:
 
 Finds a suitable free block using the first-fit strategy.
 
 Splits the block if the remaining space is large enough to be useful.
 
-Deallocation:
+### Deallocation:
 
 Marks the target block as free.
 
 Immediately merges adjacent free blocks (coalescing) to maintain large free spaces.
 
-Reallocation: * Attempts to expand the current block in-place if possible.
+### Reallocation: * Attempts to expand the current block in-place if possible.
 
 Otherwise, it allocates new memory, copies the existing data, and frees the old block.
 
