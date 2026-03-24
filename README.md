@@ -47,7 +47,10 @@ custom-memory-allocator/
 │   └── test_allocator.c
 ├── Makefile
 └── README.md
-⚙️ How It Works
+
+---
+
+## ⚙️ How It Works
 Simulation: A fixed-size byte array simulates the heap memory.
 
 Headers: Every block includes metadata (size, status, pointers).
@@ -68,29 +71,27 @@ Reallocation: * Attempts to expand the current block in-place if possible.
 
 Otherwise, it allocates new memory, copies the existing data, and frees the old block.
 
-🚀 Build & Run Instructions
-Step 1: Navigate to Project
-Open your terminal and enter the project directory:
+---
 
-Bash
+## 🚀 Build & Run Instructions
+### Step 1: Navigate to Project
+Open your terminal and enter the project directory:
 cd "C:/Users/Aditi/Desktop/C++ project/custom-memory-allocator"
-Step 2: Clean & Compile
-Bash
+
+### Step 2: Clean & Compile
 make clean
 make
 This generates the following binaries:
-
 bin/demo
-
 bin/test_allocator
 
-Step 3: Run Demo
-Bash
+### Step 3: Run Demo
+
 ./bin/demo
 Output includes: Heap state, allocation behavior, fragmentation statistics, and visual memory layout.
 
-Step 4: Run Tests
-Bash
+### Step 4: Run Tests
+
 ./bin/test_allocator
 Expected output: All tests passed!
 
