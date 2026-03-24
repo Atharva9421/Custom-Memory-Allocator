@@ -47,7 +47,7 @@ custom-memory-allocator/
 │   └── test_allocator.c
 ├── Makefile
 └── README.md
-
+```
 ---
 
 ## ⚙️ How It Works
