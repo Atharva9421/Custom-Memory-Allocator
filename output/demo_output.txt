@@ -1,0 +1,144 @@
+Initial heap
+
+===== HEAP STATE =====
+Block 0 | size=65504 | free=1
+======================
+
+===== HEAP STATS =====
+Total heap size      : 65536 bytes
+Used memory          : 0 bytes
+Free memory          : 65504 bytes
+Largest free block   : 65504 bytes
+Fragmentation        : 0.00%
+======================
+
+===== FRAGMENTATION MAP =====
+[FREE:65504]
+=============================
+
+--- Allocating A (100 bytes) ---
+[TRACE] ALLOC 104 bytes -> 00007FF7C8F48060
+
+===== HEAP STATE =====
+Block 0 | size=104 | free=0
+Block 1 | size=65368 | free=1
+======================
+
+===== HEAP STATS =====
+Total heap size      : 65536 bytes
+Used memory          : 104 bytes
+Free memory          : 65368 bytes
+Largest free block   : 65368 bytes
+Fragmentation        : 0.00%
+======================
+
+===== FRAGMENTATION MAP =====
+[USED:104][FREE:65368]
+=============================
+
+--- Allocating B (200 bytes) ---
+[TRACE] ALLOC 200 bytes -> 00007FF7C8F480E8
+
+===== HEAP STATE =====
+Block 0 | size=104 | free=0
+Block 1 | size=200 | free=0
+Block 2 | size=65136 | free=1
+======================
+
+===== HEAP STATS =====
+Total heap size      : 65536 bytes
+Used memory          : 304 bytes
+Free memory          : 65136 bytes
+Largest free block   : 65136 bytes
+Fragmentation        : 0.00%
+======================
+
+===== FRAGMENTATION MAP =====
+[USED:104][USED:200][FREE:65136]
+=============================
+
+--- Freeing A ---
+[TRACE] FREE 00007FF7C8F48060
+
+===== HEAP STATE =====
+Block 0 | size=104 | free=1
+Block 1 | size=200 | free=0
+Block 2 | size=65136 | free=1
+======================
+
+===== HEAP STATS =====
+Total heap size      : 65536 bytes
+Used memory          : 200 bytes
+Free memory          : 65240 bytes
+Largest free block   : 65136 bytes
+Fragmentation        : 0.16%
+======================
+
+===== FRAGMENTATION MAP =====
+[FREE:104][USED:200][FREE:65136]
+=============================
+
+--- Allocating C (50 bytes) ---
+[TRACE] ALLOC 56 bytes -> 00007FF7C8F48060
+
+===== HEAP STATE =====
+Block 0 | size=56 | free=0
+Block 1 | size=16 | free=1
+Block 2 | size=200 | free=0
+Block 3 | size=65136 | free=1
+======================
+
+===== HEAP STATS =====
+Total heap size      : 65536 bytes
+Used memory          : 256 bytes
+Free memory          : 65152 bytes
+Largest free block   : 65136 bytes
+Fragmentation        : 0.02%
+======================
+
+===== FRAGMENTATION MAP =====
+[USED:56][FREE:16][USED:200][FREE:65136]
+=============================
+
+--- Reallocating B to 300 bytes ---
+[TRACE] ALLOC 304 bytes -> 00007FF7C8F481D0
+[TRACE] REALLOC 304 bytes | 00007FF7C8F480E8 -> 00007FF7C8F481D0
+[TRACE] FREE 00007FF7C8F480E8
+
+===== HEAP STATE =====
+Block 0 | size=56 | free=0
+Block 1 | size=248 | free=1
+Block 2 | size=304 | free=0
+Block 3 | size=64800 | free=1
+======================
+
+===== HEAP STATS =====
+Total heap size      : 65536 bytes
+Used memory          : 360 bytes
+Free memory          : 65048 bytes
+Largest free block   : 64800 bytes
+Fragmentation        : 0.38%
+======================
+
+===== FRAGMENTATION MAP =====
+[USED:56][FREE:248][USED:304][FREE:64800]
+=============================
+
+Demo complete.
+
+Aditi@DESKTOP-R1DUFRN UCRT64 /c/Users/Aditi/Desktop/C++ project/custom-memory-allocator
+$ ./bin/test_allocator
+[TRACE] ALLOC 104 bytes -> 00007FF7DB6D8060
+[TRACE] ALLOC 64 bytes -> 00007FF7DB6D8060
+[TRACE] ALLOC 128 bytes -> 00007FF7DB6D80C0
+[TRACE] ALLOC 256 bytes -> 00007FF7DB6D8160
+[TRACE] ALLOC 128 bytes -> 00007FF7DB6D8060
+[TRACE] FREE 00007FF7DB6D8060
+[TRACE] ALLOC 128 bytes -> 00007FF7DB6D8060
+[TRACE] ALLOC 16 bytes -> 00007FF7DB6D8060
+[TRACE] ALLOC 24 bytes -> 00007FF7DB6D8090
+[TRACE] REALLOC 24 bytes | 00007FF7DB6D8060 -> 00007FF7DB6D8090
+[TRACE] FREE 00007FF7DB6D8060
+[TRACE] ALLOC 16 bytes -> 00007FF7DB6D8060
+[TRACE] CALLOC 16 bytes -> 00007FF7DB6D8060
+All tests passed!
