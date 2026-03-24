@@ -1,109 +1,98 @@
-##Custom Memory Allocator in C
+# 🛠️ Custom Memory Allocator in C
 
-A low-level systems programming project that implements a custom memory allocator in C, replicating the behavior of malloc, free, realloc, and calloc using a fixed-size heap.
+A low-level systems programming project that implements a custom memory management system. This project replicates the behavior of standard library functions like `malloc`, `free`, `realloc`, and `calloc` using a fixed-size heap. It serves as a practical demonstration of memory management concepts, fragmentation handling, and allocator design.
 
-This project demonstrates core concepts of memory management, fragmentation handling, and allocator design, along with debugging and visualization tools.
+---
 
-#Features
+## ✨ Features
 
-Core Allocator Functionality
+### **Core Allocator Functionality**
 Custom implementation of:
-my_malloc
-my_free
-my_realloc
-my_calloc
-Fixed-size heap (simulated memory)
-First-fit allocation strategy
+* `my_malloc`
+* `my_free`
+* `my_realloc`
+* `my_calloc`
+* **Fixed-size heap:** Uses a simulated memory area (fixed-size byte array).
+* **First-fit strategy:** Allocation searches for the first available block that fits the requested size.
 
-Memory Management Techniques
-Block metadata using headers
-Doubly linked list of memory blocks
-Block splitting (to minimize waste)
-Block coalescing (to reduce fragmentation)
-Memory alignment handling
+### **Memory Management Techniques**
+* **Block Metadata:** Each memory block contains a header with its size, free/used flag, and pointers.
+* **Doubly Linked List:** Manages memory blocks efficiently using next and previous pointers.
+* **Block Splitting:** Minimizes internal waste by dividing large blocks during allocation.
+* **Block Coalescing:** Merges adjacent free blocks during deallocation to reduce external fragmentation.
+* **Alignment Handling:** Ensures memory is correctly aligned for system integrity.
 
-Advanced Debugging Features
-Heap State Dump
-Shows all blocks with size and allocation status
-Heap Statistics
-Total heap size
-Used memory
-Free memory
-Largest free block
-Fragmentation %
+### **Advanced Debugging & Visualization**
+* **Heap State Dump:** Detailed view showing all blocks with their size and allocation status.
+* **Heap Statistics:** Tracks total heap size, used memory, free memory, the largest free block, and fragmentation percentage.
+* **Allocation Tracing:** Real-time logs for monitoring behavior:
+  `[TRACE] ALLOC 104 bytes -> 0x1234`
+* **Fragmentation Visualization:** A visual representation of the memory layout:
+  `[USED:56][FREE:248][USED:304][FREE:64800]`
 
-Allocation Tracing
+---
 
-[TRACE] ALLOC 104 bytes -> 0x1234
-[TRACE] FREE 0x1234
-[TRACE] REALLOC 0x1234 -> 0x5678
+## 📂 Project Structure
 
-Fragmentation Visualization
-
-[USED:56][FREE:248][USED:304][FREE:64800]
-
-#Project Structure
+```text
 custom-memory-allocator/
-│── include/
-│ ├── allocator.h
-│ ├── allocator_internal.h
-│
-│── src/
-│ ├── allocator.c
-│
-│── examples/
-│ ├── demo.c
-│
-│── tests/
-│ ├── test_allocator.c
-│
-│── Makefile
-│── README.md
+├── include/
+│   ├── allocator.h
+│   └── allocator_internal.h
+├── src/
+│   └── allocator.c
+├── examples/
+│   └── demo.c
+├── tests/
+│   └── test_allocator.c
+├── Makefile
+└── README.md
+⚙️ How It Works
+Simulation: A fixed-size byte array simulates the heap memory.
 
-#How It Works
-A fixed-size byte array simulates heap memory.
-Each memory block contains a header with:
-size
-free/used flag
-next/previous pointers
+Headers: Every block includes metadata (size, status, pointers).
+
 Allocation:
-Finds a suitable free block (first-fit)
-Splits block if necessary
+
+Finds a suitable free block using the first-fit strategy.
+
+Splits the block if the remaining space is large enough to be useful.
+
 Deallocation:
-Marks block free
-Merges adjacent free blocks (coalescing)
-Reallocation:
-Expands in-place if possible
-Otherwise allocates new memory and copies data
 
-#Build & Run Instructions
+Marks the target block as free.
 
-Step 1: Open Terminal
+Immediately merges adjacent free blocks (coalescing) to maintain large free spaces.
 
-Navigate to the project directory:
+Reallocation: * Attempts to expand the current block in-place if possible.
 
+Otherwise, it allocates new memory, copies the existing data, and frees the old block.
+
+🚀 Build & Run Instructions
+Step 1: Navigate to Project
+Open your terminal and enter the project directory:
+
+Bash
 cd "C:/Users/Aditi/Desktop/C++ project/custom-memory-allocator"
-
-Step 2: Clean Previous Build
+Step 2: Clean & Compile
+Bash
 make clean
-
-Step 3: Compile the Project
 make
-
-This generates:
+This generates the following binaries:
 
 bin/demo
+
 bin/test_allocator
-Step 4: Run Demo Program
+
+Step 3: Run Demo
+Bash
 ./bin/demo
-Output includes:
-Heap state
-Allocation behavior
-Fragmentation statistics
-Visual memory layout
-Step 5: Run Tests
+Output includes: Heap state, allocation behavior, fragmentation statistics, and visual memory layout.
+
+Step 4: Run Tests
+Bash
 ./bin/test_allocator
+Expected output: All tests passed!
 
-Expected output:
 
-All tests passed!
+**Next Step:** Would you like me to help you write the `allocator.c` source code for the `my_malloc` and `my_free` functions?
