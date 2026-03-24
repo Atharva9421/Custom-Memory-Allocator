@@ -1,10 +1,10 @@
-Custom Memory Allocator in C
+##Custom Memory Allocator in C
 
 A low-level systems programming project that implements a custom memory allocator in C, replicating the behavior of malloc, free, realloc, and calloc using a fixed-size heap.
 
 This project demonstrates core concepts of memory management, fragmentation handling, and allocator design, along with debugging and visualization tools.
 
-Features
+#Features
 
 Core Allocator Functionality
 Custom implementation of:
@@ -42,7 +42,7 @@ Fragmentation Visualization
 
 [USED:56][FREE:248][USED:304][FREE:64800]
 
-Project Structure
+#Project Structure
 custom-memory-allocator/
 │── include/
 │ ├── allocator.h
@@ -60,7 +60,7 @@ custom-memory-allocator/
 │── Makefile
 │── README.md
 
-How It Works
+#How It Works
 A fixed-size byte array simulates heap memory.
 Each memory block contains a header with:
 size
@@ -75,7 +75,8 @@ Merges adjacent free blocks (coalescing)
 Reallocation:
 Expands in-place if possible
 Otherwise allocates new memory and copies data
-Build & Run Instructions
+
+#Build & Run Instructions
 
 Step 1: Open Terminal
 
@@ -100,7 +101,7 @@ Heap state
 Allocation behavior
 Fragmentation statistics
 Visual memory layout
-🧪 Step 5: Run Tests
+Step 5: Run Tests
 ./bin/test_allocator
 
 Expected output:
